@@ -43,6 +43,13 @@ class Photo(models.Model):
     # def get_absolute_url(self):
     #     return reverse("photo:photo_list")
 
+    def delete(self, *args, **kwargs):
+
+        self.image_file.delete()
+
+        self.filtered_image_file.delete()
+
+        super(Photo, self).delete(*args, **kwargs)
 
 class PhotoTag(models.Model):
     title = models.CharField(max_length=200)
