@@ -1,8 +1,10 @@
 from django.shortcuts import render, reverse, HttpResponse, redirect
 from django.urls import reverse_lazy
+from django.views.generic import RedirectView
 from django.views.generic import View, FormView, TemplateView
 from django.contrib.auth import login, logout, authenticate
 from django import forms
+from django.conf import settings
 from member.models import MyUser
 
 
@@ -40,9 +42,11 @@ class MemberLogin(FormView):
             return redirect("member:login")
 
 
-def member_logout(request):
-    logout(request)
-    return redirect("member:login")
+class LogoutView(View):
+    def member_logout(self, request):
+        logout(request)
+        return HttpResponse(settings.LOGIN_URL)
+
 
 
 # def login_fbv(request):
