@@ -9,6 +9,7 @@
 </head>
 <body>
 	<h3>Photo list</h3>
+	<a href="{% url 'member:logout' %}">logout</a>
     <a href="{% url 'photo:photo_add' %}">Photo_add</a>
 
 	{% for photo in photos %}
