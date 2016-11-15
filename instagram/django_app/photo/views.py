@@ -5,9 +5,9 @@ from django.urls import reverse_lazy, reverse
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, View, DetailView, FormView
 from django.views.generic.detail import SingleObjectMixin
-
+from django.views.generic.edit import DeleteView
 from .models import Photo, PhotoComment, PhotoLike
-from member.models import MyUser
+
 
 
 def photo_list(request):
@@ -81,3 +81,7 @@ class PhotoDetail(View):
 
 class PhotoLikeView(SingleObjectMixin):
     model = PhotoLike
+
+class Delete(DeleteView):
+    model = AuthorDelete
+    success_url = reverse_lazy('photo_list')
