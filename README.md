@@ -98,3 +98,5 @@ URL(URI)형태만으로 이 API가 어떤 동작을 하는지 유추할 수 있�
 ## DRF 한글 번역
 
 <http://raccoonyy.github.io/drf3-tutorial-1/>
+
+## Class Based View를 사용합니다.
