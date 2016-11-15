@@ -44,6 +44,7 @@ class MemberLogin(FormView):
 class LogoutView(View):
     def get(self, request, *args, **kwargs):
         logout(request)
+        return redirect("member:login")
 
 
 
